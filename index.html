@@ -1,106 +1,432 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EVS Online MCQ Quiz - Final</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f4c81">
+<title>JNVST EVS Online Test</title>
 <style>
-:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;--brand:#8f1d2c;--brand2:#b52b3c;--ok:#137333;--bad:#b3261e;--line:#e4e7ec;--warn:#8a5a00}
-*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari","Mangal",sans-serif;background:var(--bg);color:var(--ink)}
-.wrap{max-width:980px;margin:auto;padding:18px}.top{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:18px;padding:22px;box-shadow:0 10px 30px #0002}.top h1{margin:0 0 6px;font-size:clamp(24px,4vw,36px)}.top p{margin:0;opacity:.9}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 4px 18px #0000000b}.hidden{display:none!important}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-weight:700;margin:0 0 6px}.field input,.field select{width:100%;padding:12px;border:1px solid #cfd4dc;border-radius:10px;font:inherit;background:#fff}.btn{border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:750;cursor:pointer}.primary{background:var(--brand);color:#fff}.secondary{background:#eef1f5;color:#222}.danger{background:#fff1f0;color:var(--bad);border:1px solid #f1b5b1}.btn:disabled{opacity:.5;cursor:not-allowed}
-.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}.pill{padding:7px 10px;border-radius:999px;background:#f0f2f5;font-size:14px;font-weight:700}.timer{font-variant-numeric:tabular-nums}.progress{height:8px;border-radius:99px;background:#eceff3;overflow:hidden;margin:14px 0}.bar{height:100%;background:var(--brand);width:0;transition:.2s}
-.qnum{font-size:14px;color:var(--muted);font-weight:800}.question{font-size:21px;font-weight:800;line-height:1.55;margin:8px 0 16px}.option{display:flex;gap:10px;align-items:flex-start;padding:13px;border:1px solid var(--line);border-radius:12px;margin:9px 0;cursor:pointer}.option:hover{background:#fafafa}.option input{margin-top:5px;transform:scale(1.2)}.letter{font-weight:800;min-width:24px}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:7px}.pbtn{padding:9px 4px;border-radius:9px;border:1px solid var(--line);background:white;font-weight:750;cursor:pointer}.pbtn.answered{background:#e7f4eb;border-color:#a8d5b4}.pbtn.current{outline:3px solid #e8bbc2}
-.summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.stat{border:1px solid var(--line);border-radius:13px;padding:14px;text-align:center}.stat strong{font-size:25px;display:block}.ok{color:var(--ok)}.bad{color:var(--bad)}.muted{color:var(--muted)}
-.review-item{border:1px solid var(--line);border-left:5px solid var(--line);border-radius:10px;padding:13px;margin:10px 0}.review-item.correct{border-left-color:var(--ok)}.review-item.wrong{border-left-color:var(--bad)}.review-item.skipped{border-left-color:#d18b00}.small{font-size:13px;color:var(--muted)}.notice{background:#fff7e6;border:1px solid #f2d08f;color:#6b4b00;padding:12px;border-radius:10px;margin-top:12px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,1fr)}.question{font-size:19px}.wrap{padding:10px}.card{padding:15px}}
+:root{
+  --blue:#0f4c81;--blue2:#1769aa;--light:#eef6ff;--ink:#17212b;
+  --muted:#64748b;--line:#dbe5ef;--ok:#15803d;--bad:#b91c1c;
+  --warn:#a16207;--card:#fff;--bg:#f4f7fb;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari","Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:980px;margin:auto;padding:16px}
+.hero{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:22px;border-radius:18px;margin:8px 0 16px;box-shadow:0 10px 30px #0f4c8120}
+.hero h1{font-size:clamp(22px,4vw,34px);margin:0 0 5px}
+.hero p{margin:0;opacity:.92}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 4px 16px #0f172a0a}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding:10px}.card{padding:14px}}
+label{font-weight:700;display:block;margin:0 0 6px}
+input,select{width:100%;padding:12px 13px;border:1px solid #b9c9d8;border-radius:10px;font-size:16px;background:#fff}
+input:focus,select:focus{outline:3px solid #1769aa20;border-color:var(--blue2)}
+.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.mode-grid{grid-template-columns:1fr}}
+.mode{border:2px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;transition:.18s;background:#fff}
+.mode:hover{border-color:#8db8db}
+.mode.active{border-color:var(--blue2);background:#eef7ff;box-shadow:0 0 0 3px #1769aa12}
+.mode input{width:auto;margin-right:6px}
+.mode strong{display:block;font-size:17px;margin-bottom:4px}
+.small{font-size:13px;color:var(--muted)}
+.btn{appearance:none;border:0;border-radius:11px;padding:12px 17px;font-weight:800;font-size:15px;cursor:pointer}
+.btn-primary{background:var(--blue2);color:#fff}
+.btn-secondary{background:#e7eef5;color:#1e3a52}
+.btn-danger{background:#b91c1c;color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.pill{display:inline-flex;gap:5px;align-items:center;padding:7px 10px;border-radius:999px;background:#eaf3fb;font-size:13px;font-weight:700;color:#234d70}
+.progress{height:9px;background:#e6edf4;border-radius:999px;overflow:hidden;margin:12px 0}
+.progress>div{height:100%;background:var(--blue2);width:0;transition:.2s}
+.qhead{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:9px}
+.qtext{font-size:20px;line-height:1.55;font-weight:750;margin:3px 0 16px}
+.option{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;cursor:pointer;background:#fff;transition:.15s}
+.option:hover{border-color:#88b4d6;background:#f8fbff}
+.option.selected{border-color:var(--blue2);background:#eaf5ff}
+.option input{width:auto;margin-top:4px}
+.opt-letter{min-width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#eef3f8;font-weight:900}
+.nav{display:flex;justify-content:space-between;gap:8px;margin-top:16px}
+.palette{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pnum{width:36px;height:36px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;font-weight:700}
+.pnum.current{outline:2px solid var(--blue2)}
+.pnum.done{background:#dff3e5;border-color:#a7d7b5}
+.hidden{display:none!important}
+.status{padding:10px 12px;border-radius:10px;font-size:14px;margin-top:10px}
+.status.ok{background:#e8f7ec;color:#166534}.status.warn{background:#fff7d6;color:#854d0e}.status.bad{background:#feecec;color:#991b1b}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}
+@media(max-width:680px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;background:#fbfdff}
+.kpi b{font-size:22px;display:block}
+.review-item{border-top:1px solid var(--line);padding:12px 0}
+.review-item:first-child{border-top:0}
+.correct{color:var(--ok);font-weight:800}.wrong{color:var(--bad);font-weight:800}.unanswered{color:var(--warn);font-weight:800}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:12px}
+.notice{background:#f8fafc;border-left:4px solid var(--blue2);padding:10px 12px;border-radius:8px;font-size:14px}
 </style>
 </head>
-<body><div class="wrap">
-<section class="top"><h1>Online MCQ Quiz / Test System</h1><p>पर्यावरण अध्ययन (EVS) • अभ्यास परीक्षा</p></section>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1 id="siteTitle">JNVST EVS Online Test</h1>
+    <p>श्रेणीवार अभ्यास • 50 प्रश्नों का Fresh Random Test • Fixed SET 99</p>
+  </header>
 
-<section id="startCard" class="card">
-  <h2 style="margin-top:0">परीक्षा शुरू करें</h2>
-  <div class="grid">
-    <div class="field"><label>विद्यार्थी का नाम</label><input id="studentName" placeholder="पूरा नाम"></div>
-    <div class="field"><label>रोल नंबर (अपना मोबाईल नंबर दर्ज करें)</label><input id="rollNo" inputmode="numeric" maxlength="10" placeholder="अपना मोबाईल नंबर दर्ज करें"></div>
-    <div class="field"><label>सेट चुनें</label><select id="setSelect"></select></div>
-    <div class="field"><label>कुल प्रश्न</label><input id="countPreview" readonly></div>
-  </div>
-  <button id="startBtn" class="btn primary" style="margin-top:14px">परीक्षा शुरू करें</button>
-</section>
+  <section id="startScreen">
+    <div class="card">
+      <h2 style="margin-top:0">परीक्षार्थी विवरण</h2>
+      <div class="grid">
+        <div>
+          <label for="studentName">विद्यार्थी का नाम</label>
+          <input id="studentName" autocomplete="name" placeholder="अपना नाम लिखें">
+        </div>
+        <div>
+          <label for="mobile">रोल नंबर <span class="small">(अपना मोबाईल नंबर दर्ज करें)</span></label>
+          <input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर">
+        </div>
+      </div>
+    </div>
 
-<section id="quizArea" class="hidden">
-  <div class="card">
-    <div class="meta"><div><b id="setTitle"></b><div class="small" id="studentMeta"></div></div><div class="pill timer">⏱ <span id="timer">00:00</span></div></div>
-    <div class="progress"><div id="progressBar" class="bar"></div></div>
-    <div class="qnum" id="qnum"></div><div class="question" id="question"></div><div id="options"></div>
-    <div class="nav"><button id="prevBtn" class="btn secondary">← पिछला</button><button id="nextBtn" class="btn primary">अगला →</button></div>
-  </div>
-  <div class="card"><h3 style="margin-top:0">प्रश्न सूची</h3><div id="palette" class="palette"></div><button id="submitBtn" class="btn danger" style="margin-top:15px;width:100%">परीक्षा जमा करें</button></div>
-</section>
+    <div class="card">
+      <h2 style="margin-top:0">टेस्ट का प्रकार चुनें</h2>
+      <div class="mode-grid">
+        <label class="mode active" data-mode="random">
+          <span><input type="radio" name="mode" value="random" checked> <strong>Fresh Random Test</strong></span>
+          <span class="small">सभी Active प्रश्नों में से 50 unique प्रश्न। हर बार नया टेस्ट।</span>
+        </label>
+        <label class="mode" data-mode="category">
+          <span><input type="radio" name="mode" value="category"> <strong>श्रेणीवार टेस्ट</strong></span>
+          <span class="small">प्राकृतिक जगत, मानव शरीर, दैनिक विज्ञान, सामाजिक परिवेश या गद्यांश।</span>
+        </label>
+        <label class="mode" data-mode="set99">
+          <span><input type="radio" name="mode" value="set99"> <strong>SET 99</strong></span>
+          <span class="small">Fixed confusing/review questions. सामान्य बैंक से कभी mix नहीं होंगे।</span>
+        </label>
+      </div>
 
-<section id="resultArea" class="card hidden">
-  <h2 style="margin-top:0">परिणाम</h2><p id="resultLine"></p>
-  <div class="summary"><div class="stat"><strong id="stTotal"></strong><span>कुल</span></div><div class="stat"><strong id="stAttempt"></strong><span>उत्तर दिए</span></div><div class="stat"><strong id="stCorrect" class="ok"></strong><span>सही</span></div><div class="stat"><strong id="stWrong" class="bad"></strong><span>गलत</span></div><div class="stat"><strong id="stPct"></strong><span>प्रतिशत</span></div></div>
-  <div id="saveStatus" class="notice"></div>
-  <h3>उत्तर समीक्षा</h3><div id="review"></div>
-  <button class="btn primary" onclick="location.reload()">दूसरा टेस्ट दें</button>
-</section>
+      <div id="categoryControls" class="grid hidden" style="margin-top:14px">
+        <div>
+          <label for="categorySelect">श्रेणी</label>
+          <select id="categorySelect"></select>
+        </div>
+        <div>
+          <label for="countSelect">प्रश्नों की संख्या</label>
+          <select id="countSelect"></select>
+        </div>
+      </div>
+
+      <div id="bankInfo" class="notice" style="margin-top:14px"></div>
+      <button id="startBtn" class="btn btn-primary" style="margin-top:14px;width:100%">टेस्ट शुरू करें</button>
+      <div id="startError" class="status bad hidden"></div>
+    </div>
+  </section>
+
+  <section id="quizScreen" class="hidden">
+    <div class="card">
+      <div class="toolbar">
+        <div>
+          <span class="pill" id="testLabel"></span>
+          <span class="pill" id="studentLabel"></span>
+        </div>
+        <span class="pill">⏱ <span id="timer">00:00</span></span>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div class="qhead" id="qMeta"></div>
+      <div class="qtext" id="questionText"></div>
+      <div id="options"></div>
+      <div class="nav">
+        <button id="prevBtn" class="btn btn-secondary">← पिछला</button>
+        <button id="nextBtn" class="btn btn-primary">अगला →</button>
+      </div>
+      <div class="palette" id="palette"></div>
+      <button id="submitBtn" class="btn btn-danger" style="width:100%;margin-top:16px">टेस्ट जमा करें</button>
+    </div>
+  </section>
+
+  <section id="resultScreen" class="hidden">
+    <div class="card">
+      <h2 style="margin-top:0">परिणाम</h2>
+      <div class="small" id="resultTitle"></div>
+      <div class="kpis">
+        <div class="kpi"><b id="rCorrect">0</b>सही</div>
+        <div class="kpi"><b id="rWrong">0</b>गलत</div>
+        <div class="kpi"><b id="rUnanswered">0</b>छोड़े</div>
+        <div class="kpi"><b id="rPct">0%</b>प्रतिशत</div>
+        <div class="kpi"><b id="rTime">0:00</b>समय</div>
+      </div>
+      <div id="saveStatus" class="status warn"></div>
+      <div class="toolbar" style="margin-top:12px">
+        <button class="btn btn-secondary" onclick="window.print()">परिणाम Print करें</button>
+        <button class="btn btn-primary" id="newTestBtn">नया टेस्ट</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">उत्तर समीक्षा</h3>
+      <div id="review"></div>
+    </div>
+  </section>
+
+  <footer>JNVST EVS Practice System • Master Bank v2.0</footer>
 </div>
-<script>
-const QUIZ_SETS = {"SET 01": {"title": "पर्यावरण अध्ययन (EVS) — Test Yourself 1", "questions": [{"q": "पृथ्वी की अधिकांश सतह किससे ढँकी हुई है?", "o": ["मृदा से", "जल से", "बर्फ से", "वनों से"], "a": "B"}, {"q": "पृथ्वी पर विद्यमान जल का अधिकांश भाग किस प्रकार का है?", "o": ["लवणीय जल (खारा पानी)", "अलवणीय जल (मीठा पानी)", "भूमिगत जल", "वर्षा जल"], "a": "A"}, {"q": "यदि पृथ्वी का संपूर्ण जल 200 मिलीलीटर के गिलास में भरा हो, तो मीठे जल की मात्रा किसके बराबर होगी?", "o": ["आधे गिलास के", "एक चम्मच (5 मिलीलीटर) के", "पूरे गिलास के", "दो गिलास के"], "a": "B"}, {"q": "सभी सजीव जीवित रहने के लिए किस जल पर निर्भर हैं?", "o": ["लवणीय जल", "अलवणीय (मीठे) जल", "समुद्री जल", "किसी पर नहीं"], "a": "B"}, {"q": "जल के कौन-से तीन रूप होते हैं?", "o": ["द्रव, ठोस, वाष्प", "गर्म, ठंडा, सामान्य", "मीठा, खारा, कड़वा", "साफ, गंदा, रंगीन"], "a": "A"}, {"q": "वर्षा में जल किस रूप में होता है?", "o": ["ठोस", "द्रव", "वाष्प", "गैस"], "a": "B"}, {"q": "बर्फ जल का कौन-सा रूप है?", "o": ["द्रव रूप", "ठोस रूप", "वाष्प रूप", "गैसीय रूप"], "a": "B"}, {"q": "स्टील के गिलास में बर्फ डालने पर गिलास के बाहर जो जलकण दिखाई देते हैं, वे कहाँ से आते हैं?", "o": ["गिलास के अंदर से रिसकर", "वायु में उपस्थित जलवाष्प के संघनन से", "बर्फ के अंदर से", "यह जलकण नहीं है"], "a": "B"}, {"q": "जल को गर्म करने पर वह किसमें परिवर्तित हो जाता है?", "o": ["बर्फ में", "वाष्प में", "मृदा में", "चट्टान में"], "a": "B"}, {"q": "प्रकृति में जल की सतत चक्रीय गति को क्या कहते हैं?", "o": ["जल-चक्र", "वायु-चक्र", "जीवन-चक्र", "मृदा-चक्र"], "a": "A"}, {"q": "जल-चक्र में सूर्य के ताप के कारण महासागरों और नदियों का जल किसमें परिवर्तित होता है?", "o": ["बर्फ में", "जलवाष्प में", "मृदा में", "चट्टान में"], "a": "B"}, {"q": "जलवाष्प के ठंडा होने पर क्या बनते हैं?", "o": ["बादल", "पर्वत", "रेगिस्तान", "मैदान"], "a": "A"}, {"q": "बादलों से जल पृथ्वी पर किन-किन रूपों में बरसता है?", "o": ["केवल वर्षा के रूप में", "वर्षा, बर्फ और ओलों के रूप में", "केवल बर्फ के रूप में", "केवल वाष्प के रूप में"], "a": "B"}, {"q": "भूमिगत जल किसे कहते हैं?", "o": ["भूमि के नीचे गहराई में भंडारित जल", "नदी में बहता जल", "बादलों में उपस्थित जल", "समुद्र का जल"], "a": "A"}, {"q": "वर्षा होने पर मृदा द्वारा सोखा गया जल कहाँ से होकर नीचे जाता है?", "o": ["मृदा और चट्टानों की परतों से होकर", "सीधे नदी में", "सीधे समुद्र में", "हवा में"], "a": "A"}, {"q": "भूमिगत जल निकालने के लिए किन साधनों का प्रयोग किया जाता है?", "o": ["कुएँ, नलकूप, ट्यूबवेल, हैंडपंप", "केवल बाल्टी", "केवल पाइप", "केवल टंकी"], "a": "A"}, {"q": "निम्नलिखित में से कौन-सा क्षेत्र भूमिगत जल का पुनर्भरण करेगा?", "o": ["कंक्रीट की सड़क", "हरित बगीचा", "पक्की छत", "डामर सड़क"], "a": "B"}, {"q": "शहरों में सीमेंट का उपयोग करके पक्की की गई भूमि का क्या परिणाम होता है?", "o": ["भूमिगत जल का पुनर्भरण तेज होता है", "भूमिगत जल का पुनर्भरण रुक जाता है", "कोई प्रभाव नहीं पड़ता", "बाढ़ कभी नहीं आती"], "a": "B"}, {"q": "भूमिगत जल के अतिरिक्त मीठे जल के प्राकृतिक स्रोत कौन-से हैं?", "o": ["नदियाँ, तालाब, झीलें", "केवल समुद्र", "केवल हिमनद", "केवल वर्षा"], "a": "A"}, {"q": "नदियाँ प्रायः अपनी यात्रा का आरंभ कहाँ से करती हैं?", "o": ["निचली भूमि से", "ऊँचे पहाड़ों से", "समुद्र से", "रेगिस्तान से"], "a": "B"}, {"q": "जल का प्रवाह क्या परिवर्तित कर सकता है?", "o": ["भू-आकृतियों को", "मौसम को", "ऋतुओं को", "सूर्य की स्थिति को"], "a": "A"}, {"q": "भारत के मानचित्र में नदियों के अध्ययन के लिए किन भू-आकृतियों को दर्शाया गया है?", "o": ["हिमनद, हिम श्रेणी, जल प्रपात, पर्वत, तालाब, मरुस्थल, घाटी", "केवल पर्वत", "केवल नदी", "केवल समुद्र"], "a": "A"}, {"q": "निम्नलिखित में से कौन बंगाल की खाड़ी में गिरने वाली नदी है?", "o": ["नर्मदा", "गोदावरी", "तापती", "इनमें से कोई नहीं"], "a": "B"}, {"q": "स्थल पर रहने वाले जंतु जल में साँस क्यों नहीं ले सकते?", "o": ["उनमें मीनपक्ष (गलफड़े) नहीं होते", "उनके पैर नहीं होते", "वे बहुत बड़े होते हैं", "वे उड़ नहीं सकते"], "a": "A"}, {"q": "जल में रहने वाले जंतुओं में तैरने के लिए क्या होता है?", "o": ["पंख", "मीनपक्ष (गलफड़े)", "खुर", "सींग"], "a": "B"}, {"q": "व्याघ्र पतंग (ड्रैगन फ्लाई) किस विशेषता के लिए जानी जाती है?", "o": ["यह तेजी से उड़ती है और मच्छरों को खाती है", "यह धीरे चलती है", "यह पौधों को खाती है", "यह जल के अंदर रहती है"], "a": "A"}, {"q": "जलीय बिच्छू में पिन्सर (चिमटे जैसे पैर) किस काम आते हैं और वे किससे श्वास लेते हैं?", "o": ["पिन्सर से शिकार पकड़ते हैं, पुच्छ नलिका से श्वास लेते हैं", "पिन्सर से उड़ते हैं", "पिन्सर से तैरते हैं, फेफड़ों से श्वास लेते हैं", "पिन्सर से खाना बनाते हैं"], "a": "A"}, {"q": "मीठे पानी का कछुआ (टर्टल) किस प्रकार का होता है?", "o": ["कठोर कवच वाला", "नरम कवच वाला", "बिना कवच के", "पंखयुक्त"], "a": "B"}, {"q": "जलीय सर्प के विषय में क्या सत्य है?", "o": ["यह जहरीला होता है", "यह जहरीला नहीं होता और मछलियाँ व मेंढक खाता है", "यह पौधे खाता है", "यह उड़ सकता है"], "a": "B"}, {"q": "नरकुल (एज प्लांट्स) कहाँ उगते हैं और कैसे दिखते हैं?", "o": ["तालाबों के किनारों पर, घास के समान लंबे", "समुद्र के बीच में, गोल", "पहाड़ों पर, छोटे", "रेगिस्तान में, काँटेदार"], "a": "A"}, {"q": "कमल और कुमुद किस श्रेणी के जलीय पौधे हैं?", "o": ["मुक्त प्लवी", "जलबद्ध प्लवी", "जड़हीन", "परजीवी"], "a": "B"}, {"q": "जलकुंभी को मुक्त प्लवी क्यों कहा जाता है?", "o": ["इसकी जड़ें तालाब के तल पर होती हैं", "यह जल पर तैरती है और स्वतंत्र रूप से फैलती है", "यह जल में डूबी रहती है", "यह जमीन पर उगती है"], "a": "B"}, {"q": "पत्तियों और मोमीय आलेपन (waxy coating) का क्या कार्य है?", "o": ["उन्हें जल जलरोधी बनाना और अतिरिक्त पानी को अंदर जाने से रोकना", "उन्हें रंगीन बनाना", "उन्हें भारी बनाना", "उन्हें तेज गंध देना"], "a": "A"}, {"q": "कागज पर मोम के रंगों (क्रेयॉन) से रंग भरने के बाद जल की बूँद डालने पर क्या होता है?", "o": ["जल तुरंत सोख लिया जाता है", "जल की बूँद फिसल जाती है/बूँद के रूप में रहती है", "कागज जल जाता है", "कोई परिवर्तन नहीं होता"], "a": "B"}, {"q": "आहार-श्रृंखला के खेल में यदि श्रृंखला में से एक जंतु लुप्त हो जाए तो क्या होगा?", "o": ["कोई प्रभाव नहीं पड़ेगा", "उस पर निर्भर अन्य जंतु भी प्रभावित होंगे", "सभी जंतु स्वस्थ हो जाएँगे", "नदी सूख जाएगी"], "a": "B"}, {"q": "जलीय पौधों में जल में जीवित रहने और वृद्धि करने में सहायक कौन-सी विशेषताएँ होती हैं?", "o": ["प्लवी पत्तियाँ, मीनपक्ष अथवा लंबी जड़ें", "काँटे और खुर", "पंख और चोंच", "सींग और खुर"], "a": "A"}, {"q": "बगुला मछली पकड़ने के लिए क्या करता है?", "o": ["तेजी से दौड़ता है", "लंबे समय तक स्थिर खड़ा रहता है", "पानी में डुबकी लगाता रहता है", "जाल का उपयोग करता है"], "a": "B"}, {"q": "निम्नलिखित को सुमेलित कीजिए— (i) महासागरीय जल, (ii) बर्फ, (iii) वाष्प, (iv) वर्षा जल; (क) जल का ठोस रूप, (ख) जल का वाष्प रूप, (ग) पीने के लिए अनुपयुक्त, (घ) पेय जल", "o": ["(i)-ग, (ii)-क, (iii)-ख, (iv)-घ", "(i)-क, (ii)-ख, (iii)-ग, (iv)-घ", "(i)-घ, (ii)-ग, (iii)-क, (iv)-ख", "(i)-ख, (ii)-घ, (iii)-क, (iv)-ग"], "a": "A"}, {"q": "पृथ्वी पर पाया जाने वाला अधिकांश जल पीने या कृषि हेतु उपयोग में क्यों नहीं लाया जा सकता?", "o": ["क्योंकि वह लवणीय (खारा) है", "क्योंकि वह बहुत ठंडा है", "क्योंकि वह बहुत दूर है", "क्योंकि वह जम गया है"], "a": "A"}, {"q": "जलीय निकायों के आस-पास बड़ी संख्या में सजीव प्रजातियाँ क्यों निवास करती हैं?", "o": ["क्योंकि जल जीवन के लिए आवश्यक है और भोजन, आश्रय प्रदान करता है", "क्योंकि वहाँ शोर कम होता है", "क्योंकि वहाँ धूप नहीं पड़ती", "कोई विशेष कारण नहीं"], "a": "A"}, {"q": "जल के अंदर रहने वाले पौधों की जड़ें प्रायः कहाँ स्थित होती हैं जबकि वे जल के ऊपर दिखाई देते हैं?", "o": ["जल की सतह पर", "जल संस्तर (तलहटी) पर", "हवा में", "पत्तियों में"], "a": "B"}, {"q": "मछली का मुख किस दिशा में खुला होता है?", "o": ["नीचे की ओर", "ऊपर की ओर, गोल", "बगल की ओर", "पीछे की ओर"], "a": "B"}, {"q": "जल-चक्र गतिविधि में पारदर्शी थैली को सूर्य के प्रकाश में रखने पर क्या देखा जाता है?", "o": ["थैली फट जाती है", "जल गर्म होकर जलकण बनाता है", "जल ठोस बन जाता है", "कोई परिवर्तन नहीं होता"], "a": "B"}, {"q": "मीठे पानी की मुख्य आवश्यकता किन कार्यों में होती है?", "o": ["पीने, फसल उगाने और दैनिक कार्यकलापों में", "केवल पीने में", "केवल नहाने में", "केवल खेलने में"], "a": "A"}, {"q": "जल के मार्ग में आने वाली भू-संरचनाओं का जल के प्रवाह पर क्या प्रभाव पड़ता है?", "o": ["जल उनके अनुसार बहता, रुकता अथवा मुड़ता है", "जल हमेशा सीधा बहता है", "जल रुक जाता है", "कोई प्रभाव नहीं"], "a": "A"}, {"q": "भूमिगत जल का पुनर्भरण किस प्रक्रिया द्वारा होता है?", "o": ["खुली मिट्टी से वर्षा जल के रिसने से", "नदी के सूखने से", "समुद्र के जल के वाष्पित होने से", "बर्फ के पिघलने से केवल"], "a": "A"}, {"q": "जल-चक्र की प्रक्रिया में जल किन माध्यमों से होकर अपने रूप परिवर्तित करता है?", "o": ["वायु, स्थल और आकाश से होकर", "केवल पर्वतों से होकर", "केवल नदियों से होकर", "केवल समुद्र से होकर"], "a": "A"}, {"q": "यदि किसी क्षेत्र में दो वर्ष तक वर्षा नहीं हो, तो सबसे संभावित परिणाम क्या होगा?", "o": ["जल की भारी कमी और सूखे की स्थिति", "अधिक फसल उत्पादन", "कोई प्रभाव नहीं", "बाढ़ की स्थिति"], "a": "A"}]}, "SET 02": {"title": "पर्यावरण अध्ययन (EVS) — Test Yourself 2", "questions": [{"q": "गोदावरी नदी की यात्रा कहाँ से आरंभ होती है?", "o": ["महाराष्ट्र के त्र्यंबकेश्वर स्थित पश्चिमी घाटों से", "हिमालय से", "राजस्थान के मरुस्थल से", "पूर्वी घाट से"], "a": "A"}, {"q": "गोदावरी नदी बंगाल की खाड़ी में मिलने से पहले कितनी दूरी तय करती है?", "o": ["1000 किलोमीटर", "1456 किलोमीटर", "2000 किलोमीटर", "500 किलोमीटर"], "a": "B"}, {"q": "गंगा नदी के बाद भारत की दूसरी सबसे लंबी नदी कौन-सी है?", "o": ["यमुना", "गोदावरी", "कृष्णा", "नर्मदा"], "a": "B"}, {"q": "गोदावरी नदी को दक्षिण गंगा क्यों कहा जाता है?", "o": ["क्योंकि यह उत्तर भारत से बहती है", "क्योंकि यह दक्षिणी भारत से होकर प्रवाहित होती है और पवित्र मानी जाती है", "क्योंकि यह गंगा से जुड़ी है", "क्योंकि इसका नाम गंगा जैसा है"], "a": "B"}, {"q": "गोदावरी नदी के उद्गम स्थल के समीप कौन-सा स्थान स्थित है जहाँ गोदावरी-पुष्करण जैसे अवसरों पर लोग डुबकी लगाने आते हैं?", "o": ["नासिक", "पुणे", "हैदराबाद", "विशाखापत्तनम"], "a": "A"}, {"q": "वर्षभर अनवरत बहते रहने वाली नदी को क्या कहते हैं?", "o": ["मौसमी नदी", "बारहमासी नदी", "अस्थायी नदी", "कृत्रिम नदी"], "a": "B"}, {"q": "वे नदियाँ जो केवल वर्षा-ऋतु में जल भरने पर प्रवाहित होती हैं, क्या कहलाती हैं?", "o": ["बारहमासी नदियाँ", "मौसमी नदियाँ", "पर्वत नदियाँ", "उपनदियाँ"], "a": "B"}, {"q": "गोदावरी नदी के वनों में कौन-सा प्रसिद्ध वृक्ष प्रमुखता से पाया जाता है?", "o": ["सागौन", "लाल चंदन", "साल", "देवदार"], "a": "A"}, {"q": "गोदावरी के वनों में ‘काकड़’ किसे कहा जाता है?", "o": ["एक प्रकार का पक्षी", "भौंकने वाला हिरण", "एक प्रकार का साँप", "एक प्रकार की मछली"], "a": "B"}, {"q": "गोदावरी नदी के वनों में पाई जाने वाली भारतीय सुनहरी छिपकली को अंग्रेजी में क्या कहते हैं?", "o": ["इंडियन गोल्डन गेको", "इंडियन आइडुआना", "इंडियन कोबरा", "इंडियन क्रोकोडाइल"], "a": "A"}, {"q": "जब नदी सागर पर पहुँचती है और अनेक छोटी धाराओं में फैल जाती है, तो इससे क्या बनता है?", "o": ["नदीमुख-भूमि (डेल्टा)", "झरना", "झील", "हिमनद"], "a": "A"}, {"q": "डेल्टा में मीठा जल किससे मिलता है?", "o": ["भूमिगत जल से", "समुद्र के लवणीय जल से", "वर्षा के जल से", "बर्फ के जल से"], "a": "C"}, {"q": "गोदावरी नदी का डेल्टा क्षेत्र (कोरिंगा वन) किस प्रकार का वन है?", "o": ["शंकुधारी वन", "मैंग्रोव वन", "पर्णपाती वन", "मरुस्थलीय वन"], "a": "B"}, {"q": "गोदावरी नदी के मार्ग में स्थित कौन-सा वन्यजीव अभयारण्य है?", "o": ["कोरिंगा वन्यजीव अभयारण्य", "गिर वन्यजीव अभयारण्य", "काजीरंगा वन्यजीव अभयारण्य", "बांधवगढ़ वन्यजीव अभयारण्य"], "a": "A"}, {"q": "गोदावरी नदी के मार्ग में कौन-सा राष्ट्रीय उद्यान स्थित है?", "o": ["पेंच राष्ट्रीय उद्यान", "रणथंभौर राष्ट्रीय उद्यान", "जिम कॉर्बेट राष्ट्रीय उद्यान", "सुंदरवन राष्ट्रीय उद्यान"], "a": "A"}, {"q": "गोदावरी नदी पर बना कौन-सा बाँध है जो उसके मार्ग में आता है?", "o": ["पोलावरम बाँध", "भाखड़ा नांगल बाँध", "टिहरी बाँध", "सरदार सरोवर बाँध"], "a": "A"}, {"q": "गोदावरी की उपनदियों में से एक कौन-सी है?", "o": ["मंजीरा", "कोसी", "घाघरा", "रावी"], "a": "A"}, {"q": "निम्नलिखित में से कौन-सा राज्य गोदावरी नदी के मार्ग में नहीं आता?", "o": ["महाराष्ट्र", "तेलंगाना", "आंध्र प्रदेश", "पंजाब"], "a": "D"}, {"q": "उपनदियाँ किसे कहते हैं?", "o": ["मुख्य नदी से जुड़ने वाली छोटी धाराएँ", "समुद्र में गिरने वाली नदियाँ", "बर्फ से बनी नदियाँ", "कृत्रिम रूप से बनाई गई नदियाँ"], "a": "A"}, {"q": "बाँध क्या है?", "o": ["एक विशाल भित्ति जो नदी के प्रवाह को रोककर जल का भंडारण करती है", "एक प्रकार का पुल", "एक प्रकार की नाव", "एक प्रकार का जलपोत"], "a": "A"}, {"q": "बाँध द्वारा भंडारित जल वाले बड़े जल-निकाय को क्या कहते हैं?", "o": ["जलाशय", "डेल्टा", "उपनदी", "मुहाना"], "a": "A"}, {"q": "बाँधों में संग्रहित जल का उपयोग किन कार्यों के लिए किया जाता है?", "o": ["पीने, फसल उगाने और विद्युत-उत्पादन हेतु", "केवल नौका चलाने हेतु", "केवल मछली पालन हेतु", "केवल तैराकी हेतु"], "a": "A"}, {"q": "बाँध बनने पर अक्सर लोगों और प्राणियों के साथ क्या होता है?", "o": ["कुछ नहीं होता", "उनकी आवास भूमि जलमग्न हो सकती है और उन्हें स्थानांतरित होना पड़ता है", "वे अधिक समृद्ध हो जाते हैं", "वे तुरंत सुरक्षित हो जाते हैं"], "a": "B"}, {"q": "नदी को प्रदूषित करने वाले मुख्य कारक कौन-से हैं?", "o": ["अपशिष्ट, प्लास्टिक और दूषित जल", "मछलियाँ और कछुए", "कमल के फूल", "साफ वर्षा जल"], "a": "A"}, {"q": "अपशिष्ट-उत्पादन को कम करने की एक महत्वपूर्ण युक्ति क्या है?", "o": ["पारिस्थितिकी के अनुकूल उत्पादों का उपयोग करना", "अधिक प्लास्टिक का उपयोग करना", "कारखानों की संख्या बढ़ाना", "नदी में कचरा फेंकना"], "a": "A"}, {"q": "फसल उगाने के लिए उपयोग किए जाने वाले उर्वरक नदी में मिलने पर क्या होता है?", "o": ["पौधों और अन्य जीवों की वृद्धि बहुत तेज हो जाती है, जिससे हरित आवरण बनता है", "नदी सूख जाती है", "मछलियाँ अधिक तेज तैरने लगती हैं", "कोई प्रभाव नहीं पड़ता"], "a": "A"}, {"q": "नदी पर हरित आवरण (शैवाल/पौधों की अधिकता) बन जाने से जलीय जीवों पर क्या प्रभाव पड़ता है?", "o": ["उनका दम घुटने लगता है और मछलियों को साँस लेना कठिन होता है", "वे अधिक स्वस्थ हो जाते हैं", "उनकी संख्या बढ़ जाती है", "कोई प्रभाव नहीं"], "a": "A"}, {"q": "जल स्वच्छ दिखाई देने पर भी वह हानिकारक क्यों हो सकता है?", "o": ["उसमें रसायन या साबुन जैसे अदृश्य हानिकारक तत्व हो सकते हैं", "स्वच्छ जल हमेशा सुरक्षित होता है", "रंग ही जल की शुद्धता तय करता है", "कोई हानि नहीं हो सकती"], "a": "A"}, {"q": "जब अधिक वर्षा होती है तो नदी क्या करती है?", "o": ["सूख जाती है", "विस्तृत हो जाती है और तटों से ऊपर बहकर बाढ़ लाती है", "दिशा बदल लेती है", "रुक जाती है"], "a": "B"}, {"q": "वृक्षों के होने से वर्षा के जल पर क्या प्रभाव पड़ता है?", "o": ["जल मंद गति से बहता है और मिट्टी जल सोखने में सक्षम होती है", "जल तेजी से बहता है और बाढ़ का कारण बनता है", "कोई प्रभाव नहीं पड़ता", "जल तुरंत भाप बन जाता है"], "a": "A"}, {"q": "वृक्षों के न होने पर वर्षा के जल का क्या होता है?", "o": ["जल भूमि पर अधिक तेजी से बहता है और बाढ़ का कारण बनता है", "जल भूमि में तुरंत समा जाता है", "कोई प्रभाव नहीं", "जल हवा में उड़ जाता है"], "a": "A"}, {"q": "बाढ़ के दौरान अस्वच्छ जल किसे प्रभावित करता है?", "o": ["सुरक्षित पेयजल की उपलब्धता को", "यात्रा और परिवहन को", "शिक्षा को", "बिजली आपूर्ति को"], "a": "A"}, {"q": "बाढ़ के दौरान टूटी हुई सड़कें किसे प्रभावित करती हैं?", "o": ["यात्रा और परिवहन को", "खाद्य आपूर्ति को", "जन-स्वास्थ्य को", "शिक्षा को"], "a": "A"}, {"q": "पारिस्थितिक पर्यटन (इको टूरिज्म) का क्या अर्थ है?", "o": ["प्राकृतिक स्थलों का भ्रमण करना जिससे पर्यावरण को हानि पहुँचाए बिना प्रकृति का आनंद लिया जा सके", "केवल शहरों में घूमना", "केवल होटलों में रुकना", "समुद्र में मछली पकड़ना"], "a": "A"}, {"q": "नदी के जल को लोगों तक पहुँचाने के लिए किन साधनों का उपयोग किया जाता है?", "o": ["पाइपों और नहरों का", "केवल बाल्टियों का", "केवल नावों का", "केवल हवा का"], "a": "A"}, {"q": "नदी के जल पर लोगों की कौन-सी निर्भरताएँ नहीं हैं?", "o": ["पीना, खाना पकाना, धुलाई, फसल उगाना", "कारखानों में वस्तुएँ निर्मित करना", "आजीविका चलाना", "चंद्रमा तक पहुँचना"], "a": "D"}, {"q": "जल ए.टी.एम. मशीन का क्या कार्य है?", "o": ["कार्ड या सिक्का डालने पर स्वच्छ जल देना", "पैसे निकालना", "भोजन देना", "कपड़े धोना"], "a": "A"}, {"q": "‘राष्ट्रीय जल मिशन’ का उद्देश्य क्या है?", "o": ["देशभर में जल के उचित प्रबंधन और विवेकपूर्ण उपयोग में सहायता करना", "नई नदियाँ बनाना", "समुद्र का जल मीठा बनाना", "बाँध तोड़ना"], "a": "A"}, {"q": "फलों या सब्जियों को धोने पर बचे स्वच्छ जल का पुनरुपयोग किसलिए किया जा सकता है?", "o": ["पौधों को सींचने के लिए", "फर्श धोने के लिए", "कपड़े धोने के लिए", "बर्तन धोने के लिए"], "a": "A"}, {"q": "जब नदी सूख जाती है तो परिवारों को क्या करना पड़ सकता है?", "o": ["अपने घर छोड़कर उन स्थानों पर जाना पड़ता है जहाँ जल उपलब्ध हो", "वे वहीं रहते हैं, कोई समस्या नहीं होती", "वे नदी में बाँध ला देते हैं", "कुछ नहीं करना पड़ता"], "a": "A"}, {"q": "गोदावरी नदी से जुड़ी कौन-सी प्राचीन कथाएँ बताई गई हैं?", "o": ["रामायण और पुराणों की कथाएँ", "महाभारत की कथाएँ केवल", "आधुनिक कहानियाँ", "कोई कथा नहीं"], "a": "A"}, {"q": "नदी के आस-पास घर बनाने की परंपरा प्राचीन काल से क्यों रही है?", "o": ["क्योंकि नदी जल, भोजन और आजीविका का स्रोत प्रदान करती है", "क्योंकि नदी के पास शोर होता है", "क्योंकि नदी के पास ठंड कम होती है", "कोई कारण नहीं"], "a": "A"}, {"q": "गोदावरी नदी के आस-पास के क्षेत्रों में लोग किन कार्यों से आजीविका चलाते हैं?", "o": ["खेती, मछली पकड़ना और नौका चलाना जैसे कार्यों से", "केवल खनन से", "केवल पर्यटन से", "कोई कार्य नहीं करते"], "a": "A"}, {"q": "नदी में तैरते हुए राफ्टिंग करना किस गतिविधि का उदाहरण है?", "o": ["पारिस्थितिक पर्यटन (इको टूरिज्म) का", "प्रदूषण का", "मछलीपालन का", "कृषि का"], "a": "A"}, {"q": "बाढ़ के दौरान विद्युत आपूर्ति न होने से मुख्यतः क्या प्रभावित होता है?", "o": ["बिजली, पंखा और फोन का उपयोग", "यात्रा और परिवहन", "शिक्षा एवं सीखना", "फसल उत्पादन"], "a": "A"}, {"q": "बाढ़ के दौरान विद्यालय बंद होने से क्या प्रभावित होता है?", "o": ["शिक्षा एवं सीखना", "खाद्य आपूर्ति", "जन-स्वास्थ्य", "यात्रा"], "a": "A"}, {"q": "जल संरक्षण के लिए विद्यार्थी क्या कर सकते हैं?", "o": ["जल का समुचित उपयोग करना, नल बंद रखना और रिसाव रोकना", "जल को व्यर्थ बहाना", "नदी में कचरा डालना", "नलों को खुला छोड़ना"], "a": "A"}, {"q": "निम्नलिखित को मिलाइए— (i) फसल नष्ट होना, (ii) टूटी हुई सड़कें, (iii) विद्युत आपूर्ति न होना, (iv) रोगों का फैलना; (क) यात्रा और परिवहन, (ख) खाद्य आपूर्ति, (ग) जन-स्वास्थ्य, (घ) बिजली, पंखा और फोन", "o": ["(i)-ख, (ii)-क, (iii)-घ, (iv)-ग", "(i)-क, (ii)-ख, (iii)-ग, (iv)-घ", "(i)-घ, (ii)-ग, (iii)-क, (iv)-ख", "(i)-ग, (ii)-घ, (iii)-ख, (iv)-क"], "a": "A"}, {"q": "निम्नलिखित को गोदावरी नदी से मिलाइए— (i) उद्गम स्थल, (ii) उपनदी, (iii) डेल्टा वन, (iv) राष्ट्रीय उद्यान; (क) कोरिंगा मैंग्रोव, (ख) त्र्यंबकेश्वर, (ग) पेंच, (घ) मंजीरा", "o": ["(i)-घ, (ii)-ग, (iii)-ख, (iv)-क", "(i)-क, (ii)-ख, (iii)-ग, (iv)-घ", "(i)-ख, (ii)-घ, (iii)-क, (iv)-ग", "(i)-ग, (ii)-क, (iii)-घ, (iv)-ख"], "a": "C"}]}};
-// Google Apps Script Web App deploy करने के बाद नीचे URL डालें। खाली रहने पर डेमो localStorage में सेव होगा।
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5dqhwdo1c_I7r6q8tsTUV0Cb0a4XLaFop7e-WiGDdOPTymiceCTWXda7-Jna0QlGkew/exec";
-const letters=['A','B','C','D'];
-let setKey='', quiz=null, current=0, answers=[], startedAt=null, tick=null;
-const $=id=>document.getElementById(id);
 
-function init(){
-  Object.keys(QUIZ_SETS).forEach(k=>{const op=document.createElement('option');op.value=k;op.textContent=`${k} — ${QUIZ_SETS[k].questions.length} प्रश्न`; $('setSelect').appendChild(op)});
-  $('setSelect').addEventListener('change', updateCount); updateCount();
-  $('startBtn').onclick=startQuiz; $('prevBtn').onclick=()=>go(current-1); $('nextBtn').onclick=()=>go(current+1); $('submitBtn').onclick=submitQuiz;
+<script src="config.js"></script>
+<script src="question-bank.js"></script>
+<script>
+"use strict";
+const CONFIG = window.JNVST_CONFIG || {googleScriptUrl:"",siteTitle:"JNVST EVS Online Test"};
+const BANK = Array.isArray(window.JNVST_QUESTION_BANK) ? window.JNVST_QUESTION_BANK : [];
+const LETTERS = ["A","B","C","D"];
+const $ = id => document.getElementById(id);
+
+let mode = "random", testQuestions = [], answers = [], current = 0, startedAt = 0, timerId = null, testId = "", testDescriptor = "";
+
+$("siteTitle").textContent = CONFIG.siteTitle || "JNVST EVS Online Test";
+
+function escapeHtml(s){
+  return String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 }
-function updateCount(){const k=$('setSelect').value; $('countPreview').value=k?QUIZ_SETS[k].questions.length:''}
-function startQuiz(){
-  const name=$('studentName').value.trim(), roll=$('rollNo').value.trim();
-  if(!name){alert('कृपया विद्यार्थी का नाम भरें।');return}
-  if(!roll){alert('कृपया रोल नंबर के स्थान पर अपना मोबाईल नंबर दर्ज करें।');return}
-  if(!/^\d{10}$/.test(roll)){alert('कृपया 10 अंकों का सही मोबाईल नंबर दर्ज करें।');return}
-  setKey=$('setSelect').value; quiz=QUIZ_SETS[setKey]; answers=Array(quiz.questions.length).fill(null); current=0; startedAt=Date.now();
-  $('startCard').classList.add('hidden'); $('quizArea').classList.remove('hidden'); $('setTitle').textContent=`${setKey}: ${quiz.title}`; $('studentMeta').textContent=`${name} • Roll: ${roll}`;
-  tick=setInterval(updateTimer,1000); updateTimer(); buildPalette(); render();
+function shuffle(arr){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
 }
-function updateTimer(){const sec=Math.floor((Date.now()-startedAt)/1000); const m=String(Math.floor(sec/60)).padStart(2,'0'), s=String(sec%60).padStart(2,'0'); $('timer').textContent=`${m}:${s}`}
-function buildPalette(){ $('palette').innerHTML=''; quiz.questions.forEach((_,i)=>{let b=document.createElement('button');b.className='pbtn';b.textContent=i+1;b.onclick=()=>go(i);$('palette').appendChild(b)}); }
-function render(){
-  const item=quiz.questions[current]; $('qnum').textContent=`प्रश्न ${current+1} / ${quiz.questions.length}`; $('question').textContent=item.q; $('options').innerHTML='';
-  item.o.forEach((txt,i)=>{const lab=document.createElement('label');lab.className='option';lab.innerHTML=`<input type="radio" name="opt" value="${letters[i]}" ${answers[current]===letters[i]?'checked':''}><span class="letter">${letters[i]}.</span><span>${escapeHtml(txt)}</span>`;lab.querySelector('input').onchange=e=>{answers[current]=e.target.value;refreshPalette()};$('options').appendChild(lab)});
-  $('prevBtn').disabled=current===0; $('nextBtn').textContent=current===quiz.questions.length-1?'अंतिम प्रश्न':'अगला →'; $('progressBar').style.width=`${((current+1)/quiz.questions.length)*100}%`; refreshPalette();
+function normText(s){
+  return String(s).normalize("NFKC").toLowerCase().replace(/[\s?।,:;'"“”‘’()[\]\-–—/]+/g,"").trim();
 }
-function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-function refreshPalette(){[...$('palette').children].forEach((b,i)=>{b.classList.toggle('answered',!!answers[i]);b.classList.toggle('current',i===current)})}
-function go(i){if(i<0||i>=quiz.questions.length)return;current=i;render();window.scrollTo({top:0,behavior:'smooth'})}
-function submitQuiz(){
-  const unanswered=answers.filter(x=>!x).length; if(!confirm(`आप ${quiz.questions.length-unanswered} प्रश्नों के उत्तर दे चुके हैं। ${unanswered} प्रश्न छोड़े गए हैं। क्या परीक्षा जमा करें?`))return;
-  clearInterval(tick); const correct=answers.reduce((n,a,i)=>n+(a===quiz.questions[i].a),0), attempted=quiz.questions.length-unanswered, wrong=attempted-correct, pct=(correct/quiz.questions.length*100).toFixed(2), duration=Math.floor((Date.now()-startedAt)/1000);
-  $('quizArea').classList.add('hidden'); $('resultArea').classList.remove('hidden'); $('stTotal').textContent=quiz.questions.length; $('stAttempt').textContent=attempted; $('stCorrect').textContent=correct; $('stWrong').textContent=wrong; $('stPct').textContent=pct+'%';
-  $('resultLine').textContent=`${$('studentName').value.trim()} • ${setKey} • ${correct}/${quiz.questions.length} सही`;
-  renderReview();
-  const payload={timestamp:new Date().toISOString(),studentName:$('studentName').value.trim(),rollNo:$('rollNo').value.trim(),set:setKey,total:quiz.questions.length,attempted,correct,wrong,unanswered,score:correct,percentage:pct,durationSeconds:duration,answers};
-  localStorage.setItem('evs_quiz_last_result',JSON.stringify(payload));
-  if(GOOGLE_SCRIPT_URL){saveRemote(payload)}else{$('saveStatus').innerHTML='परिणाम इस ब्राउज़र में सुरक्षित है। Google Sheet में सेव करने के लिए दिए गए Apps Script को deploy करके HTML में <b>GOOGLE_SCRIPT_URL</b> भरना होगा।'}
-  window.scrollTo({top:0,behavior:'smooth'});
+function uniqueByQuestion(arr){
+  const seen=new Set(), out=[];
+  for(const q of arr){const k=normText(q.question);if(!seen.has(k)){seen.add(k);out.push(q);}}
+  return out;
 }
-function renderReview(){
-  $('review').innerHTML=''; quiz.questions.forEach((q,i)=>{const chosen=answers[i], good=chosen===q.a, cls=!chosen?'skipped':good?'correct':'wrong'; const div=document.createElement('div');div.className='review-item '+cls;div.innerHTML=`<b>Q${i+1}. ${escapeHtml(q.q)}</b><div style="margin-top:6px">आपका उत्तर: <b>${chosen||'छोड़ा'}</b> &nbsp; | &nbsp; सही उत्तर: <b>${q.a}</b> — ${escapeHtml(q.o[letters.indexOf(q.a)])}</div>`;$('review').appendChild(div)});
+function activePool(){return BANK.filter(q=>q.status==="active" && q.eligible);}
+function set99Pool(){return BANK.filter(q=>q.status==="set99");}
+function categoryCounts(){
+  const m=new Map();
+  for(const q of activePool()) m.set(q.category,(m.get(q.category)||0)+1);
+  return [...m.entries()].sort((a,b)=>a[0].localeCompare(b[0],"hi"));
 }
-async function saveRemote(payload){
-  $('saveStatus').textContent='Google Sheet में परिणाम सेव किया जा रहा है…';
-  try{const body=new URLSearchParams({payload:JSON.stringify(payload)});await fetch(GOOGLE_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body.toString()});$('saveStatus').textContent='परिणाम Google Sheet को भेज दिया गया है।';}
-  catch(e){$('saveStatus').textContent='परिणाम स्क्रीन पर सुरक्षित है, लेकिन Google Sheet में भेजने में समस्या हुई। Apps Script URL/permission जाँचें।';}
+function populateCategories(){
+  const sel=$("categorySelect");
+  sel.innerHTML="";
+  for(const [cat,count] of categoryCounts()){
+    const o=document.createElement("option");o.value=cat;o.textContent=`${cat} (${count})`;sel.appendChild(o);
+  }
+  updateCountOptions();
 }
-init();
-</script></body></html>
+function updateCountOptions(){
+  const cat=$("categorySelect").value;
+  const n=uniqueByQuestion(activePool().filter(q=>q.category===cat)).length;
+  const values=[5,10,20,25,50].filter(x=>x<=n);
+  if(!values.includes(n)) values.push(n);
+  values.sort((a,b)=>a-b);
+  $("countSelect").innerHTML=values.map(v=>`<option value="${v}">${v===n && ![5,10,20,25,50].includes(n) ? `सभी (${n})` : v+" प्रश्न"}</option>`).join("");
+  if(values.includes(Math.min(20,n))) $("countSelect").value=String(Math.min(20,n));
+}
+function updateBankInfo(){
+  const active=activePool().length, s99=set99Pool().length, pending=BANK.filter(q=>q.status==="pending").length;
+  $("bankInfo").innerHTML=`Master Bank: <b>${BANK.length}</b> प्रश्न • Active: <b>${active}</b> • Fixed SET 99: <b>${s99}</b> • Pending/Excluded: <b>${pending}</b>`;
+}
+document.querySelectorAll(".mode").forEach(el=>{
+  el.addEventListener("click",()=>{
+    mode=el.dataset.mode;
+    document.querySelectorAll(".mode").forEach(x=>x.classList.toggle("active",x===el));
+    el.querySelector("input").checked=true;
+    $("categoryControls").classList.toggle("hidden",mode!=="category");
+  });
+});
+$("categorySelect").addEventListener("change",updateCountOptions);
+
+function prepareQuestion(q){
+  const opts=q.options.map((text,i)=>({text,isCorrect:LETTERS[i]===q.correct,originalLetter:LETTERS[i]}));
+  const sh=shuffle(opts);
+  const ci=sh.findIndex(x=>x.isCorrect);
+  return {...q, displayOptions:sh.map(x=>x.text), displayCorrect:LETTERS[ci]};
+}
+function createTest(){
+  const name=$("studentName").value.trim();
+  const mobile=$("mobile").value.replace(/\D/g,"");
+  if(name.length<2) throw new Error("कृपया विद्यार्थी का नाम दर्ज करें।");
+  if(!/^\d{10}$/.test(mobile)) throw new Error("कृपया 10 अंकों का मोबाइल नंबर दर्ज करें।");
+
+  let selected=[];
+  if(mode==="random"){
+    const pool=uniqueByQuestion(activePool());
+    selected=shuffle(pool).slice(0,50);
+    testDescriptor="Fresh Random Test — 50 Questions";
+  }else if(mode==="category"){
+    const cat=$("categorySelect").value;
+    const count=Number($("countSelect").value);
+    const pool=uniqueByQuestion(activePool().filter(q=>q.category===cat));
+    selected=shuffle(pool).slice(0,Math.min(count,pool.length));
+    testDescriptor=`श्रेणीवार — ${cat} (${selected.length})`;
+  }else{
+    // Fixed membership. Only SET 99 questions are used; no replacement/mixing.
+    selected=shuffle(set99Pool());
+    testDescriptor=`SET 99 — Fixed Review (${selected.length})`;
+  }
+  if(!selected.length) throw new Error("इस चयन के लिए प्रश्न उपलब्ध नहीं हैं।");
+  testQuestions=selected.map(prepareQuestion);
+  answers=Array(testQuestions.length).fill("");
+  current=0;
+  startedAt=Date.now();
+  testId=`EVS-${new Date().toISOString().replace(/\D/g,"").slice(0,14)}-${Math.floor(100+Math.random()*900)}`;
+  $("studentLabel").textContent=`${name} • ${mobile}`;
+  $("testLabel").textContent=testDescriptor;
+  $("startScreen").classList.add("hidden");
+  $("resultScreen").classList.add("hidden");
+  $("quizScreen").classList.remove("hidden");
+  buildPalette();
+  renderQuestion();
+  clearInterval(timerId);
+  timerId=setInterval(updateTimer,1000);
+  updateTimer();
+}
+$("startBtn").addEventListener("click",()=>{
+  $("startError").classList.add("hidden");
+  try{createTest()}catch(e){$("startError").textContent=e.message;$("startError").classList.remove("hidden");}
+});
+
+function buildPalette(){
+  $("palette").innerHTML=testQuestions.map((_,i)=>`<button class="pnum" data-i="${i}">${i+1}</button>`).join("");
+  $("palette").querySelectorAll(".pnum").forEach(b=>b.onclick=()=>{current=Number(b.dataset.i);renderQuestion();});
+}
+function renderQuestion(){
+  const q=testQuestions[current];
+  $("qMeta").textContent=`प्रश्न ${current+1} / ${testQuestions.length} • ${q.category} • ${q.topic} • ${q.id}`;
+  $("questionText").textContent=q.question;
+  $("options").innerHTML=q.displayOptions.map((text,i)=>{
+    const L=LETTERS[i], checked=answers[current]===L;
+    return `<label class="option ${checked?"selected":""}">
+      <input type="radio" name="answer" value="${L}" ${checked?"checked":""}>
+      <span class="opt-letter">${L}</span><span>${escapeHtml(text)}</span>
+    </label>`;
+  }).join("");
+  $("options").querySelectorAll('input[name="answer"]').forEach(r=>{
+    r.addEventListener("change",()=>{answers[current]=r.value;renderQuestion();});
+  });
+  $("prevBtn").disabled=current===0;
+  $("nextBtn").disabled=current===testQuestions.length-1;
+  $("progressBar").style.width=`${((current+1)/testQuestions.length)*100}%`;
+  $("palette").querySelectorAll(".pnum").forEach((b,i)=>{
+    b.classList.toggle("current",i===current);
+    b.classList.toggle("done",!!answers[i]);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+$("prevBtn").onclick=()=>{if(current>0){current--;renderQuestion();}};
+$("nextBtn").onclick=()=>{if(current<testQuestions.length-1){current++;renderQuestion();}};
+function elapsedSec(){return Math.floor((Date.now()-startedAt)/1000);}
+function fmtTime(sec){return `${String(Math.floor(sec/60)).padStart(2,"0")}:${String(sec%60).padStart(2,"0")}`;}
+function updateTimer(){$("timer").textContent=fmtTime(elapsedSec());}
+
+$("submitBtn").addEventListener("click",()=>{
+  const unanswered=answers.filter(x=>!x).length;
+  const msg=unanswered?`${unanswered} प्रश्न अभी छोड़े गए हैं। क्या फिर भी टेस्ट जमा करें?`:"क्या आप टेस्ट जमा करना चाहते हैं?";
+  if(confirm(msg)) finishTest();
+});
+
+async function finishTest(){
+  clearInterval(timerId);
+  const duration=elapsedSec();
+  let correct=0;
+  testQuestions.forEach((q,i)=>{if(answers[i]===q.displayCorrect) correct++;});
+  const attempted=answers.filter(Boolean).length;
+  const wrong=attempted-correct;
+  const unanswered=testQuestions.length-attempted;
+  const pct=Math.round((correct/testQuestions.length)*10000)/100;
+
+  $("quizScreen").classList.add("hidden");
+  $("resultScreen").classList.remove("hidden");
+  $("rCorrect").textContent=correct;
+  $("rWrong").textContent=wrong;
+  $("rUnanswered").textContent=unanswered;
+  $("rPct").textContent=pct+"%";
+  $("rTime").textContent=fmtTime(duration);
+  $("resultTitle").textContent=`${testDescriptor} • Test ID: ${testId}`;
+
+  $("review").innerHTML=testQuestions.map((q,i)=>{
+    const sel=answers[i];
+    const si=sel?LETTERS.indexOf(sel):-1;
+    const ci=LETTERS.indexOf(q.displayCorrect);
+    const state=!sel?"unanswered":(sel===q.displayCorrect?"correct":"wrong");
+    const label=!sel?"छोड़ा":(state==="correct"?"सही":"गलत");
+    return `<div class="review-item">
+      <div><b>${i+1}. ${escapeHtml(q.question)}</b> <span class="${state}">— ${label}</span></div>
+      <div class="small">${q.id} • ${escapeHtml(q.sourceSet)} Q${q.sourceQuestion} • ${escapeHtml(q.category)}</div>
+      <div>आपका उत्तर: <b>${sel?sel+" — "+escapeHtml(q.displayOptions[si]):"—"}</b></div>
+      <div>सही उत्तर: <b class="correct">${q.displayCorrect} — ${escapeHtml(q.displayOptions[ci])}</b></div>
+    </div>`;
+  }).join("");
+
+  const payload={
+    timestamp:new Date().toISOString(),
+    testId,
+    mode,
+    category:mode==="category"?$("categorySelect").value:"",
+    studentName:$("studentName").value.trim(),
+    rollNo:$("mobile").value.replace(/\D/g,""),
+    set:testDescriptor,
+    total:testQuestions.length,
+    attempted,correct,wrong,unanswered,score:correct,percentage:pct,durationSeconds:duration,
+    answers:answers.slice(),
+    answerAudit:testQuestions.map((q,i)=>{
+      const sel=answers[i], si=sel?LETTERS.indexOf(sel):-1, ci=LETTERS.indexOf(q.displayCorrect);
+      return {
+        originalQuestionNo:q.sourceQuestion,
+        displayOrder:i+1,
+        masterId:q.id,
+        sourceSet:q.sourceSet,
+        category:q.category,
+        topic:q.topic,
+        question:`[${q.id} | ${q.sourceSet} Q${q.sourceQuestion}] ${q.question}`,
+        selectedLetter:sel,
+        selectedText:si>=0?q.displayOptions[si]:"",
+        correctLetter:q.displayCorrect,
+        correctText:q.displayOptions[ci],
+        originalCorrectLetter:q.correct,
+        status:!sel?"छोड़ा":(sel===q.displayCorrect?"सही":"गलत"),
+        testId
+      };
+    })
+  };
+  await saveResult(payload);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+async function saveResult(payload){
+  const url=(CONFIG.googleScriptUrl||"").trim();
+  if(!url){
+    $("saveStatus").className="status warn";
+    $("saveStatus").textContent="Result स्क्रीन पर तैयार है, लेकिन Google Sheet URL config.js में सेट नहीं है; इसलिए ऑनलाइन रिकॉर्ड सेव नहीं हुआ।";
+    return;
+  }
+  $("saveStatus").className="status warn";
+  $("saveStatus").textContent="Google Sheet में परिणाम सेव किया जा रहा है…";
+  try{
+    const body=new URLSearchParams({payload:JSON.stringify(payload)});
+    await fetch(url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body});
+    $("saveStatus").className="status ok";
+    $("saveStatus").textContent="Result Google Sheet को भेज दिया गया है।";
+  }catch(e){
+    $("saveStatus").className="status bad";
+    $("saveStatus").textContent="Result दिख रहा है, लेकिन Google Sheet में भेजने में समस्या हुई। Internet/Script URL जाँचें।";
+  }
+}
+$("newTestBtn").onclick=()=>{
+  clearInterval(timerId);
+  $("resultScreen").classList.add("hidden");
+  $("startScreen").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+populateCategories();
+updateBankInfo();
+if(!BANK.length){
+  $("startError").textContent="question-bank.js load नहीं हुआ। index.html और question-bank.js को एक ही folder में रखें।";
+  $("startError").classList.remove("hidden");
+  $("startBtn").disabled=true;
+}
+</script>
+</body>
+</html>
